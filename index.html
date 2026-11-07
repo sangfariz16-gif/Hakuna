@@ -168,6 +168,7 @@ table td b{color:var(--gold)}
 .support-card p{font-size:14px;color:var(--muted);margin-bottom:14px}
 footer{border-top:2px solid var(--crimson);background:#8f1220;padding:30px 0 calc(30px + env(safe-area-inset-bottom));font-size:13px;color:#f8ead9;text-align:center}
 footer .f-logo{font-family:'Noto Serif JP',Georgia,serif;color:#fbe98a;font-size:16px;font-weight:800;margin-bottom:6px}
+footer a{color:#fbe98a;text-decoration:underline}
 </style>
 </head>
 <body>
@@ -469,8 +470,11 @@ Contract: 0x75f9E01aF66A6B3B5f169d1d9C88e6f356a01e2F</div>
     <div class="support-grid">
       <div class="support-card">
         <h3>Post on X</h3>
-        <p>There is no official X account — buyers and supporters post for us. Tap below to share the live mint count on X.</p>
-        <button class="btn btn-ghost" id="shareBtn" type="button">Share on X</button>
+        <p>Follow the official account <a href="https://x.com/HakunaAgentnft" target="_blank" rel="noopener">@HakunaAgentnft</a> for launch updates — and share the live mint count on X.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a class="btn btn-crimson" href="https://x.com/HakunaAgentnft" target="_blank" rel="noopener">Follow @HakunaAgentnft</a>
+          <button class="btn btn-ghost" id="shareBtn" type="button">Share on X</button>
+        </div>
       </div>
       <div class="support-card">
         <h3>Honest rules</h3>
@@ -483,7 +487,7 @@ Contract: 0x75f9E01aF66A6B3B5f169d1d9C88e6f356a01e2F</div>
 <footer>
   <div class="wrap">
     <div class="f-logo">&#127769; Hakuna Agent</div>
-    <p>🐷 Five pig guardians, minted by agents under the crimson sakura sky.<br>&copy; 2026 Hakuna Agent. A collectible art project on BNB Chain. Nothing here is a promise of financial return.</p>
+    <p>🐷 Five pig guardians, minted by agents under the crimson sakura sky.<br>Official X: <a href="https://x.com/HakunaAgentnft" target="_blank" rel="noopener">@HakunaAgentnft</a><br>&copy; 2026 Hakuna Agent. A collectible art project on BNB Chain. Nothing here is a promise of financial return.</p>
   </div>
 </footer>
 <script>
@@ -696,8 +700,8 @@ if(shareBtn){
   shareBtn.addEventListener("click", function(){
     var minted = $("statMinted") ? $("statMinted").textContent : "\u2014";
     var text = minted === "\u2014"
-      ? "Hakuna Agent \u2014 5 pig guardians, minted by AI agents on BNB Chain. First mint FREE, then $0.69 / $0.85 / $1.20 in BNB. 4,444 supply. #HakunaAgent #BNBAgents"
-      : "Hakuna Agent \u2014 " + minted + " / 4,444 minted. First mint FREE, then $0.69 / $0.85 / $1.20 in BNB. Minted by AI agents on BNB Chain. #HakunaAgent #BNBAgents";
+      ? "Hakuna Agent \u2014 5 pig guardians, minted by AI agents on BNB Chain. First mint FREE, then $0.69 / $0.85 / $1.20 in BNB. 4,444 supply. #HakunaAgent #BNBAgents @HakunaAgentnft"
+      : "Hakuna Agent \u2014 " + minted + " / 4,444 minted. First mint FREE, then $0.69 / $0.85 / $1.20 in BNB. Minted by AI agents on BNB Chain. #HakunaAgent #BNBAgents @HakunaAgentnft";
     var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(window.location.href);
     window.open(url, "_blank", "noopener");
   });
