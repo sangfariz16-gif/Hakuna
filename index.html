@@ -186,7 +186,6 @@ footer .f-logo{font-family:'Noto Serif JP',Georgia,serif;color:#fbe98a;font-size
 </header>
 
 <main class="wrap" id="top">
-  <div style="margin-top:18px;border:1px solid #c79a3a;border-radius:12px;background:#fdf3d7;padding:12px 16px;font-size:13.5px;color:#5a4310"><b>PREVIEW</b> — the contracts are not deployed yet. Mint opens after deploy. The piggy bank, prices and agent prompt below are the live design.</div>
 
   <!-- HERO -->
   <div class="hero">
@@ -245,7 +244,7 @@ footer .f-logo{font-family:'Noto Serif JP',Georgia,serif;color:#fbe98a;font-size
       <div class="sub"><span id="mp-pct">&mdash;</span>% minted &middot; <span id="mp-left">4,444 left</span></div>
       <div class="price">1 FREE, then $0.69 / $0.85 / $1.20 in BNB</div>
       <div class="sub"><span id="mp-block">BNB Chain &middot; block &mdash;</span></div>
-      <div class="phase" id="piggyPhase">Empty piggy bank &middot; mint hasn&rsquo;t opened</div>
+      <div class="phase" id="piggyPhase">Empty piggy bank &middot; mint is open</div>
       <div class="sub" id="mp-note">Loading live count&hellip;</div>
     </div>
   </div>
@@ -272,7 +271,7 @@ footer .f-logo{font-family:'Noto Serif JP',Georgia,serif;color:#fbe98a;font-size
         <p>Your Hakuna Agent NFT lands in your wallet on BNB Chain. The token is drawn <b>at random</b> from the remaining pool — a rare pig gets easier to pull as the supply runs out. Each paid mint also earns <b>120,000 HAKU</b>* — claimable after mint.</p>
       </div>
     </div>
-    <p class="fine">*Token economics — HAKU deploys with the contracts (predicted address 0x284665A4a1b62aC24329dAC30671CBB42817eB13).</p>
+    <p class="fine">*Token economics — HAKU token is live at 0x284665A4a1b62aC24329dAC30671CBB42817eB13.</p>
   </section>
 
   <!-- COLLECTION -->
@@ -375,7 +374,7 @@ Price: first mint per wallet FREE (gas only),
        USD in BNB per mint (Chainlink BNB/USD oracle)
 Max: 44 per wallet total
 Bonus: 120,000 HAKU per PAID mint (claimable on-chain)
-Contract (predicted): 0x75f9E01aF66A6B3B5f169d1d9C88e6f356a01e2F</div>
+Contract: 0x75f9E01aF66A6B3B5f169d1d9C88e6f356a01e2F</div>
     <p class="fine">Always simulate the mint from your own address before sending it. If the simulation reverts, do not send — you would spend gas for nothing.</p>
     <div style="margin-top:16px">
       <h3 style="font-size:17px;margin-bottom:6px;color:var(--ink)">Check your Agent ID</h3>
@@ -459,7 +458,7 @@ Contract (predicted): 0x75f9E01aF66A6B3B5f169d1d9C88e6f356a01e2F</div>
       <p><b>NFT contract:</b> <span class="addr"><a href="https://bscscan.com/token/0x75f9E01aF66A6B3B5f169d1d9C88e6f356a01e2F" target="_blank" rel="noopener">0x75f9E01aF66A6B3B5f169d1d9C88e6f356a01e2F</a></span></p>
       <p style="margin-top:10px"><b>HAKU token:</b> <span class="addr"><a href="https://bscscan.com/token/0x284665A4a1b62aC24329dAC30671CBB42817eB13" target="_blank" rel="noopener">0x284665A4a1b62aC24329dAC30671CBB42817eB13</a></span></p>
       <p style="margin-top:10px"><b>Chain:</b> BNB Chain (56) &middot; <b>Standard:</b> BEP-721 &middot; <b>Supply:</b> 4,444 &middot; <b>Royalty:</b> 5%</p>
-      <p class="fine">Preview — these are the predicted CREATE2 addresses. The contracts deploy on the project&rsquo;s go-ahead; the page updates to the live addresses at launch.</p>
+      <p class="fine">Live contracts — deployed and verified on BscScan.</p>
     </div>
   </section>
 
@@ -499,7 +498,7 @@ var BALANCE_SEL = "0x70a08231"; /* balanceOf(address) */
 var MAX_SUPPLY = 4444;
 var FREE_PER_WALLET = 1;
 var MAX_PER_WALLET = 44;
-var PREVIEW = true; /* preview deployment: contracts not deployed yet */
+var PREVIEW = false; /* live: contracts deployed, mint open */
 /* tiered USD pricing (cents) by wallet mint index, mirrors the contract */
 function tierCents(i){ if(i <= 1) return 0; if(i <= 17) return 69; if(i <= 32) return 85; return 120; }
 function centsFor(qty, already){ var c = 0; for(var i = 0; i < qty; i++) c += tierCents(already + i + 1); return c; }
@@ -533,7 +532,7 @@ function ethCall(to, data){
 
 /* piggy bank: gold fill rises with mint progress (0..1) — every mint makes it fuller */
 function piggyPhaseName(pct){
-  if(pct <= 0) return "Empty piggy bank \u00b7 mint hasn\u2019t opened";
+  if(pct <= 0) return "Empty piggy bank \u00b7 mint is open \u00b7 be the first";
   if(pct < 0.25) return "Piggy bank filling up";
   if(pct < 0.5) return "Piggy bank getting heavy";
   if(pct < 0.75) return "Piggy bank almost full";
@@ -705,15 +704,8 @@ if(shareBtn){
 }
 
 updateTotal();
-if(PREVIEW){
-  setText("statNote", "Preview — the contracts deploy on confirmation; live stats appear once mint is open.");
-  setText("mp-note", "Preview — live count appears after deploy.");
-  var mb = $("mintBtn"); if(mb) mb.disabled = true; /* wallet mint stays off in preview; agent prompt buttons still work */
-  setNote("Preview — mint opens after the contracts deploy.");
-} else {
-  readLive();
-  setInterval(readLive, 30000);
-}
+readLive();
+setInterval(readLive, 30000);
 })();
 </script>
 </body>
