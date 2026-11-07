@@ -42,11 +42,12 @@ img{display:block;max-width:100%}
 .wrap{max-width:1080px;margin:0 auto;padding:0 18px;position:relative;z-index:1}
 h1,h2,h3,.display{font-family:'Noto Serif JP',Georgia,serif;letter-spacing:.02em}
 .gold-text{background:linear-gradient(135deg,#fbe98a 0%,#f0c040 40%,#b98a2f 70%,#fbe98a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.red-text{background:linear-gradient(135deg,#ff8a8a 0%,#ff5a5a 35%,#d92632 65%,#ff8a8a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 /* header */
 header.site{position:sticky;top:0;z-index:50;background:rgba(20,8,9,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 header.site .bar{display:flex;align-items:center;gap:14px;max-width:1080px;margin:0 auto;padding:12px 18px}
 .logo{display:flex;align-items:center;gap:9px;font-family:'Noto Serif JP',Georgia,serif;font-weight:800;font-size:18px;color:var(--gold);letter-spacing:.04em;white-space:nowrap}
-.logo .moon-dot{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fffbe8,#f2d47e 55%,#c79a3a);box-shadow:0 0 14px rgba(242,212,126,.7);flex:none}
+.logo .pig-dot{font-size:24px;line-height:1;flex:none}
 nav.main{display:none;gap:20px;margin-left:auto}
 nav.main a{color:var(--muted);font-size:14px;font-weight:600}
 nav.main a:hover{color:var(--gold)}
@@ -61,8 +62,8 @@ nav.main a:hover{color:var(--gold)}
 @media(min-width:760px){nav.main{display:flex}.btn-sm{margin-left:0}}
 /* hero */
 .hero{position:relative;padding:52px 0 34px;overflow:hidden}
-.hero .moon{position:absolute;top:-70px;right:-90px;width:300px;height:300px;border-radius:50%;
-  background:radial-gradient(circle at 42% 38%,#ffe9a8 0%,#f0c040 25%,#d92632 55%,rgba(217,38,50,0) 72%);opacity:.55;pointer-events:none}
+.hero .sun{position:absolute;top:-70px;right:-90px;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle at 42% 38%,#ff8a8a 0%,#ff5a5a 30%,#d92632 55%,rgba(217,38,50,0) 72%);opacity:.55;pointer-events:none}
 .hero-grid{display:grid;gap:28px;align-items:center}
 @media(min-width:860px){.hero-grid{grid-template-columns:1.05fr .95fr}}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;color:var(--ice);text-transform:uppercase}
@@ -72,6 +73,10 @@ nav.main a:hover{color:var(--gold)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 @media(max-width:559px){.hero-cta{flex-direction:column}.hero-cta .btn{width:100%}}
 .hero-note{font-size:13px;color:var(--muted);margin-top:12px}
+.pig-row{display:flex;gap:10px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.pig-row a{width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);flex:none;box-shadow:0 0 0 2px rgba(217,38,50,.45)}
+.pig-row img{width:100%;height:100%;object-fit:cover;display:block}
+.pig-row-cap{font-size:12px;font-weight:700;color:var(--crimson2);letter-spacing:.08em}
 .hero-art{position:relative}
 .frame{border:1px solid var(--gold-dim);border-radius:18px;padding:8px;background:linear-gradient(160deg,rgba(240,192,64,.14),rgba(58,21,32,.4));box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.4)}
 .frame img{border-radius:12px;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 28%}
@@ -116,7 +121,7 @@ section .sub{color:var(--muted);max-width:640px;margin-bottom:22px}
 .steps{display:grid;gap:14px}
 @media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
 .step{border:1px solid var(--line);border-radius:16px;background:var(--navy2);padding:20px}
-.step .n{font-family:'Noto Serif JP',Georgia,serif;font-size:30px;font-weight:800;color:var(--gold)}
+.step .n{font-family:'Noto Serif JP',Georgia,serif;font-size:30px;font-weight:800;color:#ff8a8a}
 .step h3{font-size:18px;margin:8px 0 6px;color:#f2ecd4}
 .step p{font-size:14px;color:var(--muted)}
 .step code{color:var(--ice);font-size:13px}
@@ -144,7 +149,7 @@ table td b{color:var(--gold)}
 .road{display:grid;gap:14px}
 @media(min-width:760px){.road{grid-template-columns:repeat(4,1fr)}}
 .phase{border:1px solid var(--line);border-radius:16px;background:var(--navy2);padding:18px}
-.phase .ph{font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--ice);text-transform:uppercase}
+.phase .ph{font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--crimson2);text-transform:uppercase}
 .phase h3{font-size:17px;margin:8px 0 6px;color:#f2ecd4}
 .phase p{font-size:13.5px;color:var(--muted)}
 /* agents */
@@ -179,7 +184,7 @@ footer .f-logo{font-family:'Noto Serif JP',Georgia,serif;color:var(--gold);font-
 <body>
 <header class="site">
   <div class="bar">
-    <a class="logo" href="#top"><span class="moon-dot"></span>Hakuna Agent</a>
+    <a class="logo" href="#top"><span class="pig-dot">🐷</span>Hakuna Agent</a>
     <nav class="main">
       <a href="#collection">Collection</a>
       <a href="#how">How it works</a>
@@ -196,15 +201,23 @@ footer .f-logo{font-family:'Noto Serif JP',Georgia,serif;color:var(--gold);font-
 
   <!-- HERO -->
   <div class="hero">
-    <div class="moon"></div>
+    <div class="sun"></div>
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">BNB Chain &middot; Agent-Native NFT &middot; 4,444 Supply</div>
-        <h1 class="gold-text">Hakuna Agent</h1>
-        <p class="lede">Five pig guardians under the sakura moon, minted only by AI agents holding a Binance <b>.ai Agent ID</b>. Your <b>first mint is FREE</b> — then <b>$0.69 / $0.85 / $1.20 in BNB</b>, up to <b>44 per wallet</b>. Every mint is a <b>random draw</b> — the pig you get is a mystery until it lands.</p>
+        <div class="eyebrow">🐷 BNB Chain &middot; Agent-Native NFT &middot; 4,444 Supply</div>
+        <h1><span class="red-text">Hakuna</span> <span class="gold-text">Agent</span></h1>
+        <p class="lede">Five pig guardians under the crimson sakura sky, minted only by AI agents holding a Binance <b>.ai Agent ID</b>. Your <b>first mint is FREE</b> — then <b>$0.69 / $0.85 / $1.20 in BNB</b>, up to <b>44 per wallet</b>. Every mint is a <b>random draw</b> — the pig you get is a mystery until it lands.</p>
         <div class="hero-cta">
-          <button class="btn btn-gold" id="heroMintBtn" type="button">🤖 Mint with your agent</button>
+          <button class="btn btn-crimson" id="heroMintBtn" type="button">🤖 Mint with your agent</button>
           <a class="btn btn-ghost" href="#collection">View the collection</a>
+        </div>
+        <div class="pig-row">
+          <a href="#collection" aria-label="Common pig"><img src="assets/tier-common.jpg" alt="Common pig" loading="lazy"></a>
+          <a href="#collection" aria-label="Rare pig"><img src="assets/tier-rare.jpg" alt="Rare pig" loading="lazy"></a>
+          <a href="#collection" aria-label="Epic pig"><img src="assets/tier-epic.jpg" alt="Epic pig" loading="lazy"></a>
+          <a href="#collection" aria-label="Legendary pig"><img src="assets/tier-legendary.jpg" alt="Legendary pig" loading="lazy"></a>
+          <a href="#collection" aria-label="Mythic pig"><img src="assets/tier-mythic.jpg" alt="Mythic pig" loading="lazy"></a>
+          <span class="pig-row-cap">🐷 5 pigs &middot; 1 legend</span>
         </div>
         <p class="hero-note">Be Part of the Legend. Mint is live. Connect a wallet holding a .ai Agent ID to mint.</p>
       </div>
@@ -251,7 +264,7 @@ footer .f-logo{font-family:'Noto Serif JP',Georgia,serif;color:var(--gold);font-
   <!-- HOW IT WORKS -->
   <section id="how">
     <div class="kicker">How it works</div>
-    <h2>Minted by agents, not by clicking</h2>
+    <h2>🐷 Minted by agents, not by clicking</h2>
     <p class="sub">Only wallets holding a Binance .ai Agent ID can mint. The check happens on-chain — no ID, no mint. Every mint is a random draw from the remaining pool.</p>
     <div class="steps">
       <div class="step">
@@ -276,7 +289,7 @@ footer .f-logo{font-family:'Noto Serif JP',Georgia,serif;color:var(--gold);font-
   <!-- COLLECTION -->
   <section id="collection">
     <div class="kicker">The Collection</div>
-    <h2>Five pig guardians</h2>
+    <h2>🐷 Five pig guardians</h2>
     <p class="sub">Random draw, 1–4,444. Rarity is fixed by token ID range — the draw is random, the tier follows the ID. The rarer the pig, the harder the pull — until the supply runs low.</p>
     <div class="gallery">
       <article class="card">
@@ -346,7 +359,7 @@ footer .f-logo{font-family:'Noto Serif JP',Georgia,serif;color:var(--gold);font-
   <!-- ROADMAP -->
   <section id="roadmap">
     <div class="kicker">Roadmap</div>
-    <h2>From first mint to the moon</h2>
+    <h2>From first mint to the legend</h2>
     <p class="sub">No dates are promised — each phase starts when the previous one is done.</p>
     <div class="road">
       <div class="phase"><div class="ph">Phase 1</div><h3>Launch</h3><p>Contracts deployed, mint open — first mint free per wallet, then $0.69 / $0.85 / $1.20 in BNB. All 4,444 metadata live.</p></div>
@@ -412,7 +425,7 @@ Contract (predicted): 0x75f9E01aF66A6B3B5f169d1d9C88e6f356a01e2F</div>
         <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
       </div>
       <div class="mint-total" id="mintTotal">Total: <b>FREE</b> — your first mint costs gas only.</div>
-      <button class="btn btn-gold" id="mintBtn" type="button">Mint now</button>
+      <button class="btn btn-crimson" id="mintBtn" type="button">Mint now</button>
       <button class="btn btn-gold" id="agentMintBtn" type="button" style="margin-top:10px">🤖 Mint with your agent</button>
       <p class="fine" id="mintNote">Agent ID required. Connect your wallet, then mint — first mint free, then $0.69 / $0.85 / $1.20 in BNB by mint count.</p>
     </div>
@@ -464,7 +477,7 @@ Contract (predicted): 0x75f9E01aF66A6B3B5f169d1d9C88e6f356a01e2F</div>
   <!-- SUPPORT -->
   <section id="support">
     <div class="kicker">Support</div>
-    <h2>Spread the word</h2>
+    <h2>🐷 Spread the word</h2>
     <div class="support-grid">
       <div class="support-card">
         <h3>Post on X</h3>
@@ -482,7 +495,7 @@ Contract (predicted): 0x75f9E01aF66A6B3B5f169d1d9C88e6f356a01e2F</div>
 <footer>
   <div class="wrap">
     <div class="f-logo">&#127769; Hakuna Agent</div>
-    <p>Five pig guardians, minted by agents under the sakura moon.<br>&copy; 2026 Hakuna Agent. A collectible art project on BNB Chain. Nothing here is a promise of financial return.</p>
+    <p>🐷 Five pig guardians, minted by agents under the crimson sakura sky.<br>&copy; 2026 Hakuna Agent. A collectible art project on BNB Chain. Nothing here is a promise of financial return.</p>
   </div>
 </footer>
 <script>
