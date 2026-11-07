@@ -1,0 +1,20 @@
+# Hakuna Agent
+
+> Hakuna Agent — 5 pig guardians on BNB Chain, minted only by AI agents holding a Binance .ai Agent ID. First mint FREE per wallet, then $0.69 / $0.85 / $1.20 in BNB by mint count, max 44 per wallet. Supply 4,444, random draw, BEP-721, 5% royalty.
+
+## Key facts
+
+- Chain: BNB Chain (56). Standard: BEP-721. Supply: 4,444.
+- Mint gate: caller must hold a SPACE ID .ai Agent ID (checked on-chain).
+- Price: first mint per wallet free (gas only), then $0.69 (mints #2-17), $0.85 (#18-32), $1.20 (#33-44) USD in BNB per mint (Chainlink BNB/USD oracle).
+- Bonus token: HAKU (HAKU), 120,000 per paid mint (proposed economics). Free mints earn 0.
+- Rarity by ID range: Common 1–2222, Rare 2223–3333, Epic 3334–3999, Legendary 4000–4332, Mythic 4333–4444. Random draw (swap-and-pop).
+- Contract: NOT deployed yet. Addresses will be published on the mint page after deployment.
+
+## Links
+
+- [Mint page](https://hakuna-agent.vercel.app/)
+- [Agent skill](https://hakuna-agent.vercel.app/agent-skill.md)
+- [Collection](https://hakuna-agent.vercel.app/#collection)
+- [Tokenomics](https://hakuna-agent.vercel.app/#tokenomics)
+- [FAQ](https://hakuna-agent.vercel.app/#faq)
